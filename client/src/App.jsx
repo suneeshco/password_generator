@@ -1,12 +1,26 @@
 
-import './App.css'
+
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import Main from './Components/Main/Main'
+import { Toaster } from 'react-hot-toast'
+import SavedPassword from "./Components/Main/SavedPassword"
+import PrivateRoute from "./Components/PrivateRoute"
 
 function App() {
 
   return (
-    <>
-     <h1>Hello</h1>
-    </>
+
+    <Router>
+      <Toaster position="top-right" />
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="" element={<PrivateRoute/>}>
+          <Route path="/savedPasswords" element={<SavedPassword />} />
+        </Route>
+
+      </Routes>
+    </Router>
+
   )
 }
 
