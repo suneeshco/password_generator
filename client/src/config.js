@@ -1,4 +1,4 @@
 export const config = {
-    authBaseURL: 'http://localhost:3002/api/auth',
-    userBaseURL : 'http://localhost:3002/api/user'
+    authBaseURL: 'https://password-generator-pymj.onrender.com/api/auth',
+    userBaseURL : 'https://password-generator-pymj.onrender.com/api/user'
 };
