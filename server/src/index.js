@@ -10,10 +10,11 @@ import 'dotenv/config';
 const app = express()
 
 
+
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors({
-  origin:["http://localhost:5173","https://eduzones.online"],
+  origin:"*",
   credentials:true
 }));
 
@@ -21,13 +22,13 @@ app.use(cors({
 app.use('/api/auth', authRoutes);
 app.use('/api/user', userRoutes);
 
-mongoose.connect(`mongodb://127.0.0.1:27017/Password`).then(() => {
+mongoose.connect(`${process.env.MONGO_URL}`).then(() => {
     console.log('Connected to MongoDB');
   }).catch(error => {
     console.error('MongoDB connection error:', error);
   });
 
-const port = 3002
+const port = process.env.PORT
 
 
 
